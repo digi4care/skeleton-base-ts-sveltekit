@@ -76,7 +76,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 	 */
 	response.headers.set('Content-Security-Policy-Report-Only', csp);
 	// response.headers.set('Content-Security-Policy', csp);
-	response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+	response.headers.set(
+		'Strict-Transport-Security',
+		'max-age=31536000; includeSubDomains; preload'
+	);
 	/*response.headers.set(
         'Expect-CT',
         `max-age=86400, report-uri="https://sentry.io/api/${
