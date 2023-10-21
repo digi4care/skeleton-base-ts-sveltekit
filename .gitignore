@@ -8,4 +8,4 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 pnpm-lock.yaml
-temp/branch-custom-queries.zip
+temp/*
