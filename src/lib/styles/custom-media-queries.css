@@ -1,0 +1,2 @@
+@custom-media --desktop-device screen and (width > 768px);
+@custom-media --mobile-device screen and (width < 767px);
