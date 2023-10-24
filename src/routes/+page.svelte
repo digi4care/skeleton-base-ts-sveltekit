@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Test from '@/components/Test.svelte';
+	import Accordion from '@/components/Melt/Accordion.svelte';
 </script>
 
 <div class="container bg-magnum-966 text-white">
@@ -8,7 +8,7 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 
-	<Test />
+	<Accordion />
 </div>
 
 <style lang="postcss">
