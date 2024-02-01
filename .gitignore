@@ -12,3 +12,4 @@ temp/*
 
 $houdini
 schema.graphql
+package-lock.json
