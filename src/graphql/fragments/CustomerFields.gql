@@ -1,0 +1,13 @@
+fragment CustomerFields on Customer {
+	id
+	databaseId
+	firstName
+	lastName
+	displayName
+	email
+	sessionToken
+	metaData {
+		key
+		value
+	}
+}

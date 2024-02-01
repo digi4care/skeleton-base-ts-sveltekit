@@ -1,0 +1,10 @@
+mutation RemoveItemsFromCart($keys: [ID], $all: Boolean) {
+	removeItemsFromCart(input: { keys: $keys, all: $all }) {
+		cart {
+			...CartContent
+		}
+		cartItems {
+			...CartItemContent
+		}
+	}
+}

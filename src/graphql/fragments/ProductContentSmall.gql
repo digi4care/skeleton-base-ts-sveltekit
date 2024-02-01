@@ -1,0 +1,52 @@
+fragment ProductContentSmall on Product {
+	id
+	databaseId
+	slug
+	name
+	type
+	shortDescription(format: RAW)
+	image {
+		id
+		sourceUrl(size: WOOCOMMERCE_THUMBNAIL)
+		altText
+	}
+	productCategories(first: 20) {
+		nodes {
+			id
+			slug
+			name
+		}
+	}
+	productTags(first: 20) {
+		nodes {
+			id
+			slug
+			name
+		}
+	}
+	allPaColor(first: 100) {
+		nodes {
+			id
+			slug
+			name
+		}
+	}
+	... on SimpleProduct {
+		onSale
+		stockStatus
+		price
+		rawPrice: price(format: RAW)
+		regularPrice
+		salePrice
+		soldIndividually
+	}
+	... on VariableProduct {
+		onSale
+		stockStatus
+		price
+		rawPrice: price(format: RAW)
+		regularPrice
+		salePrice
+		soldIndividually
+	}
+}

@@ -1,0 +1,7 @@
+fragment MenuItemContent on MenuItem {
+	id
+	uri
+	title
+	label
+	cssClasses
+}

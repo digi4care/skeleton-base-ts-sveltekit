@@ -1,0 +1,13 @@
+fragment ProductVariationContentSlice on ProductVariation {
+	id
+	databaseId
+	name
+	slug
+	image {
+		id
+		sourceUrl(size: WOOCOMMERCE_THUMBNAIL)
+		altText
+	}
+	price
+	regularPrice
+}

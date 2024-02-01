@@ -1,0 +1,5 @@
+query GetProduct($id: ID!, $idType: ProductIdTypeEnum) {
+	product(id: $id, idType: $idType) {
+		...ProductContentFull
+	}
+}

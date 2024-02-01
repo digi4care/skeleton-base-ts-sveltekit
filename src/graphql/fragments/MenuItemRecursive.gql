@@ -1,0 +1,8 @@
+fragment MenuItemRecursive on MenuItem {
+	...MenuItemContent
+	childItems {
+		nodes {
+			...MenuItemContent
+		}
+	}
+}

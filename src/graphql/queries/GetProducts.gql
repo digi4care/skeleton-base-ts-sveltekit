@@ -1,0 +1,17 @@
+query GetProducts($first: Int, $after: String, $where: RootQueryToProductUnionConnectionWhereArgs) {
+	products(first: $first, after: $after, where: $where) {
+		pageInfo {
+			endCursor
+			hasNextPage
+		}
+		edges {
+			cursor
+			node {
+				...ProductContentSmall
+			}
+		}
+		nodes {
+			...ProductContentSmall
+		}
+	}
+}

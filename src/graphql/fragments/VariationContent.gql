@@ -1,0 +1,16 @@
+fragment VariationContent on ProductVariation {
+	id
+	name
+	slug
+	price
+	regularPrice
+	salePrice
+	stockStatus
+	stockQuantity
+	onSale
+	image {
+		id
+		sourceUrl
+		altText
+	}
+}

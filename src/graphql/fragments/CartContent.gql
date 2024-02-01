@@ -1,0 +1,35 @@
+fragment CartContent on Cart {
+	contents(first: 100) {
+		itemCount
+		nodes {
+			...CartItemContent
+		}
+	}
+	appliedCoupons {
+		code
+		discountAmount
+		discountTax
+	}
+	needsShippingAddress
+	availableShippingMethods {
+		packageDetails
+		supportsShippingCalculator
+		rates {
+			id
+			instanceId
+			methodId
+			label
+			cost
+		}
+	}
+	subtotal
+	subtotalTax
+	shippingTax
+	shippingTotal
+	total
+	totalTax
+	feeTax
+	feeTotal
+	discountTax
+	discountTotal
+}

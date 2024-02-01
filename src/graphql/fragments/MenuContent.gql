@@ -1,0 +1,11 @@
+fragment MenuContent on Menu {
+	id
+	name
+	locations
+	slug
+	menuItems(first: 20, where: { parentId: 0 }) {
+		nodes {
+			...MenuItemRecursive
+		}
+	}
+}

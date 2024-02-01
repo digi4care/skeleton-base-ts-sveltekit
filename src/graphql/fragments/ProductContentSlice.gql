@@ -1,0 +1,22 @@
+fragment ProductContentSlice on Product {
+	id
+	databaseId
+	name
+	slug
+	type
+	image {
+		id
+		sourceUrl(size: WOOCOMMERCE_THUMBNAIL)
+		altText
+	}
+	... on SimpleProduct {
+		price
+		regularPrice
+		soldIndividually
+	}
+	... on VariableProduct {
+		price
+		regularPrice
+		soldIndividually
+	}
+}
