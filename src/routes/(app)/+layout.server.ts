@@ -3,9 +3,23 @@ import { GetLayoutStore } from '$houdini';
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 
+/**
+ * Logger
+ */
+// import { Logger, LogLevel, type LoggerOptions } from '@/lib/server/utils/logger';
+
+// const loggerOptions: LoggerOptions = {
+// 	level: LogLevel.Debug,
+// 	timestamp: true,
+// 	targets: [{ type: 'console' }]
+// };
+// const logger = Logger.getInstance(loggerOptions);
+
 export const load: LayoutServerLoad = async (event: ServerLoadEvent) => {
 	const GetLayout = new GetLayoutStore();
 	const { data, errors } = await GetLayout.fetch({ event });
+
+	// logger.debug('LayoutServerLoad', data);
 
 	// Controleer of er errors zijn
 	if (errors) {
