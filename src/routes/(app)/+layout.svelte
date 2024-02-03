@@ -20,7 +20,7 @@
 
 	// $: console.log((data.posts.status === 200 && data.posts.data.footer));
 	// TODO: We need SEO ...
-	console.log(data.data.headerMenu?.menuItems?.nodes)
+	// console.log(data.data.headerMenu?.menuItems?.nodes)
 </script>
 
 <svelte:head>
