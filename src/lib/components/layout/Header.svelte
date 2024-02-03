@@ -1,9 +1,18 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 
-	const headerSettings = getContext('headerSettings');
+	import type { headerSettings } from '@/types';
+	import { buildMenuStructure, generateMenuHTML } from '@/lib/utils/buildNavigationMenus';
+
+	const headerSettings: headerSettings = getContext('headerSettings');
+
+	const MenuItemNode = headerSettings.headerMenu?.menuItems?.nodes || [];
+
+	// Menustructuur opbouwen en HTML genereren
+	const menuStructure = buildMenuStructure(MenuItemNode);
+	const menuHTML = generateMenuHTML(menuStructure);
+
+	// console.log(menuHTML);
 </script>
 
-<pre>
-{JSON.stringify(headerSettings, null, 4)}
-</pre>
+{@html menuHTML}
