@@ -1,4 +1,13 @@
-import type { GetLayout$result } from '$houdini';
+// Verfijnde generieke utility types die beter omgaan met de TypeScript vereisten
+export type NonNullableEdges<T> =
+	NonNullable<T> extends { edges: infer E } ? (E extends Array<infer U> ? U : never) : never;
+export type NonNullableNodes<T> =
+	NonNullable<T> extends { nodes: infer N } ? (N extends Array<infer V> ? V : never) : never;
+
+/**
+ * Houdini
+ */
+import type { GetLayout$result, GetShopCategories$result } from '$houdini';
 
 export type headerSettings = {
 	header: GetLayout$result['header'];
@@ -10,21 +19,20 @@ export type footerSettings = {
 	footerMenu: GetLayout$result['footerMenu'];
 };
 
-export type MenuItemNode = {
-	readonly id: string;
-	readonly order: number | null;
-	readonly parentId: string | null;
-	readonly databaseId: number;
-	readonly cssClasses: (string | null)[] | null;
-	readonly label: string | null;
-	readonly linkRelationship: string | null;
-	readonly path: string | null;
-	readonly target: string | null;
-	readonly title: string | null;
-	readonly uri: string | null;
-}[];
+/** Shop Categories */
+export type ShopCategoryEdgeType = NonNullableEdges<GetShopCategories$result['productCategories']>;
+export type ShopCategoryNodeType = NonNullableNodes<GetShopCategories$result['productCategories']>;
 
-// Veronderstellend dat `MenuItemNode` een array van items is zoals gedefinieerd in je context.
+// Use this helper type to specifically get the types for menuItems of both the header and footer.
+type HeaderMenuItemsType = NonNullable<GetLayout$result['headerMenu']>;
+export type HeaderMenuItemsNode = NonNullable<HeaderMenuItemsType['menuItems']>;
+
+type FooterMenuItemsType = NonNullable<GetLayout$result['footerMenu']>;
+export type FooterMenuItemsNode = NonNullable<FooterMenuItemsType['menuItems']>;
+
+// Please define the same node elements for both headerMenu and footerMenu in GraphQL
+export type MenuItemNode = HeaderMenuItemsNode['nodes'];
+
+// Assuming that MenuItemNode is an array of items as defined in your context.
 export type MenuItem = MenuItemNode[number];
-
 export type MenuItemWithChildren = MenuItem & { children: MenuItemWithChildren[] };
