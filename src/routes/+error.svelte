@@ -14,9 +14,3 @@
 <p>
 	{message}&hellip;
 </p>
-
-<style>
-	a {
-		color: var(--colour-dark);
-	}
-</style>
