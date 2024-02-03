@@ -1,4 +1,8 @@
-import { PUBLIC_DOMAIN, PUBLIC_SENTRY_KEY, PUBLIC_SENTRY_PROJECT_ID } from '$env/static/public';
+import {
+	PUBLIC_FRONTEND_DOMAIN,
+	PUBLIC_SENTRY_KEY,
+	PUBLIC_SENTRY_PROJECT_ID
+} from '$env/static/public';
 
 import type { Handle } from '@sveltejs/kit';
 
@@ -26,8 +30,8 @@ const directives = {
 	// 'style-src': ["'self'", "'unsafe-inline'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
 	'default-src': [
 		"'self'",
-		PUBLIC_DOMAIN,
-		`ws://${PUBLIC_DOMAIN}`
+		PUBLIC_FRONTEND_DOMAIN,
+		`ws://${PUBLIC_FRONTEND_DOMAIN}`
 		// 'https://*.google.com',
 		// 'https://*.googleapis.com',
 		// 'https://*.firebase.com',
