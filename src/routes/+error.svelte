@@ -10,9 +10,9 @@
 <svelte:head>
 	<title>{title}</title>
 </svelte:head>
-<h1>{title}</h1>
+<h1>Error: {status}</h1>
 <p>
-	{message}&hellip; <a aria-label="Return to home page" href="/">Go&nbsp;home?</a>
+	{message}&hellip;
 </p>
 
 <style>
