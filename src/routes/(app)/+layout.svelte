@@ -2,11 +2,31 @@
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
 
+	import { setContext } from 'svelte';
+
+	const headerSettings = setContext('headerSettings', {
+		header: data.data.header,
+		headerMenu: data.data.headerMenu
+	});
+
+	const footerSettings = setContext('footerSettings', {
+		footer: data.data.footer,
+		footerMenu: data.data.footerMenu
+	});
+
+	// const generalSettings = data.data?.generalSettings || data.errors;
+
 	import Layout from '@/lib/components/layout/Layout.svelte';
-    
+
 	// $: console.log((data.posts.status === 200 && data.posts.data.footer));
-	$: console.log(data);
+	// TODO: We need SEO ...
 </script>
+
+<svelte:head>
+	<title>
+		{data.data.generalSettings?.title || 'Hummer E-Commerce'}
+	</title>
+</svelte:head>
 
 <Layout>
 	<slot />
