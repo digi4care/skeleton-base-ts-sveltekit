@@ -9,16 +9,13 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"rootDirs": [
-			".",
-			"./.svelte-kit/types",
-			"./.svelte-kit/ambient.d.ts",
-			"./$houdini/types",
-			"src/**/*.d.ts",
-			"src/**/*.js",
-			"src/**/types.ts",
-			"src/**/*.svelte",
-			"src/node_modules"
-		]
+		"allowUnreachableCode": false,
+		"exactOptionalPropertyTypes": true,
+		"noImplicitAny": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true
 	}
 }
