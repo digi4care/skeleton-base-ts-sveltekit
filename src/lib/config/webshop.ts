@@ -11,6 +11,10 @@ const woocommerceSettings: WoocommerceSettings = {
 			width: 300,
 			height: 300
 		}
+	},
+	itemsPerPage: {
+		default: 12,
+		shop: 12
 	}
 };
 
