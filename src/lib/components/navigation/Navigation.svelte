@@ -7,7 +7,7 @@
 </script>
 
 <nav>
-	<ul id="primary-menu" class="menu menu-primary navbar-nav">
+	<ul id="{type}-menu" class="menu menu-{type} navbar-nav">
 		{#each links as link, i}
 			<NavigationFamilyNode member={link} />
 		{/each}

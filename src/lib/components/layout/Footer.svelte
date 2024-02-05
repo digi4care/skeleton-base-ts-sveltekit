@@ -2,7 +2,8 @@
 	import { getContext } from 'svelte';
 
 	import type { footerSettings } from '@/types';
-	import { buildMenuStructure, generateMenuHTML } from '@/lib/utils/buildNavigationMenus';
+	import { buildMenuStructure } from '@/lib/utils/buildNavigationMenus';
+	import Navigation from '@/lib/components/navigation/Navigation.svelte';
 
 	const footerSettings: footerSettings = getContext('footerSettings');
 
@@ -10,9 +11,11 @@
 
 	// Menustructuur opbouwen en HTML genereren
 	const menuStructure = buildMenuStructure(MenuItemNode);
-	const menuHTML = generateMenuHTML(menuStructure);
+	// const menuHTML = generateMenuHTML(menuStructure);
 
 	// console.log(menuHTML);
 </script>
 
-{@html menuHTML}
+<footer>
+	<Navigation type="footer" links={menuStructure} />
+</footer>

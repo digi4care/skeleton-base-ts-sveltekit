@@ -16,4 +16,6 @@
 	// console.log(menuHTML);
 </script>
 
-<Navigation type="header" links={menuStructure} />
+<header>
+	<Navigation type="primary" links={menuStructure} />
+</header>
