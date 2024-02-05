@@ -13,4 +13,8 @@ export type WoocommerceSettings = {
 			height: number;
 		};
 	};
+	itemsPerPage: {
+		default: number;
+		[key: string]: number;
+	};
 };
