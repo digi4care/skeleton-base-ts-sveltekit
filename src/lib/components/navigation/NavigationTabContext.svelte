@@ -1,5 +1,5 @@
 <script lang="ts">
-    // NavigationTabContext.svelte
+	// NavigationTabContext.svelte
 	// TODO create a context store for the menu states
 </script>
 

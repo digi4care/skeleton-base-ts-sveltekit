@@ -60,7 +60,7 @@ export class ArrayManager {
 				const menu_item_type = null !== post_type ? `menu-item-type-${post_type}` : '';
 				const menu_item_object = null !== post_type ? `menu-item-object-${post_type}` : '';
 
-                const menu_item_ancestor = null === parentId ? 'menu-item-ancestor' : '';
+				const menu_item_ancestor = null === parentId ? 'menu-item-ancestor' : '';
 
 				const UpdatedCssClasses = ArrayManager.concatenateArray(
 					cssClasses,
@@ -70,7 +70,7 @@ export class ArrayManager {
 					menu_item_type,
 					menu_item_object,
 					menu_item_databaseId,
-                    menu_item_ancestor
+					menu_item_ancestor
 				);
 				// console.log(UpdatedCssClasses);
 

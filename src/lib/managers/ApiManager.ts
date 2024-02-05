@@ -28,7 +28,9 @@ export class Api {
 	 * @param {HTMLFormElement} form
 	 * @returns {Promise<Send<_Data, _Input>>} Promise<Send<_Data, _Input>>
 	 */
-	public static async sendJson<_Data, _Input>(form: HTMLFormElement): Promise<Send<_Data, _Input>> {
+	public static async sendJson<_Data, _Input>(
+		form: HTMLFormElement
+	): Promise<Send<_Data, _Input>> {
 		const response = await fetch(form.action, {
 			method: form.method,
 			body: JSON.stringify(form),

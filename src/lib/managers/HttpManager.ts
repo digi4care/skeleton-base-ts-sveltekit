@@ -41,7 +41,9 @@ export class HttpManager {
 		}
 
 		if (isJson) {
-			_message = ArrayManager.isArray(_parsed_message) ? _parsed_message[0].message : _message;
+			_message = ArrayManager.isArray(_parsed_message)
+				? _parsed_message[0].message
+				: _message;
 		}
 
 		switch (status) {

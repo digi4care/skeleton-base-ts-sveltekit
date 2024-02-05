@@ -64,7 +64,7 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: nowrap;
-		gap: .5rem;
+		gap: 0.5rem;
 		margin: 0 auto;
 		transition: 0.2s;
 		transition-timing-function: ease-out;

@@ -4,7 +4,7 @@
 </script>
 
 <Header />
-    <main>
-        <slot />
-    </main>
+<main>
+	<slot />
+</main>
 <Footer />

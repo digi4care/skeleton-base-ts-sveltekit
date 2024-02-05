@@ -6,7 +6,7 @@
 
 	/**
 	 * Setup Context
-	 * 
+	 *
 	 * This is static data.
 	 */
 	import { setContext } from 'svelte';
