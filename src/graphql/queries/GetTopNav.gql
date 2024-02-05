@@ -1,5 +1,0 @@
-query GetTopNav {
-	menu(id: "hcms-menu-header", idType: LOCATION) {
-		...MenuContent
-	}
-}

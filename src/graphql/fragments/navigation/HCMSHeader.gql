@@ -1,0 +1,6 @@
+fragment HCMSHeader on HCMSHeader {
+  favicon
+  siteLogoUrl
+  siteTagLine
+  siteTitle
+}

@@ -1,0 +1,7 @@
+fragment GeneralSettings on GeneralSettings {
+  description
+  language
+  timezone
+  title
+  url
+}

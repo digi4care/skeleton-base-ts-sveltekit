@@ -1,0 +1,19 @@
+fragment MenuItems on Menu {
+  id
+  name
+  menuItems {
+    nodes {
+      id
+      order
+      parentId
+      databaseId
+      cssClasses
+      label
+      linkRelationship
+      path
+      target
+      title
+      uri
+    }
+  }
+}

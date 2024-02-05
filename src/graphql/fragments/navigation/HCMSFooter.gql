@@ -1,0 +1,9 @@
+fragment HCMSFooter on HCMSFooter {
+  copyrightText
+  sidebarOne
+  sidebarTwo
+  socialLinks {
+    iconName
+    iconUrl
+  }
+}

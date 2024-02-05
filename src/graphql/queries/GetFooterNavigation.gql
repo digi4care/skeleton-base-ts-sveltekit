@@ -1,0 +1,5 @@
+query GetFooterNavigation {
+  footerMenu: menu(id: "hcms-menu-footer", idType: LOCATION) {
+    ...MenuItems
+  }
+}

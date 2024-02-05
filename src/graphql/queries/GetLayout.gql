@@ -1,62 +1,17 @@
 query GetLayout {
-	generalSettings {
-		description
-		language
-		timezone
-		title
-		url
-	}
-	header: getHeader {
-		favicon
-		siteLogoUrl
-		siteTagLine
-		siteTitle
-	}
-	footer: getFooter {
-		copyrightText
-		sidebarOne
-		sidebarTwo
-		socialLinks {
-			iconName
-			iconUrl
-		}
-	}
-	headerMenu: menu(id: "hcms-menu-header", idType: LOCATION) {
-		id
-		name
-		menuItems {
-			nodes {
-				id
-				order
-				parentId
-				databaseId
-				cssClasses
-				label
-				linkRelationship
-				path
-				target
-				title
-				uri
-			}
-		}
-	}
-	footerMenu: menu(id: "hcms-menu-footer", idType: LOCATION) {
-		id
-		name
-		menuItems {
-			nodes {
-				id
-				order
-				parentId
-				databaseId
-				cssClasses
-				label
-				linkRelationship
-				path
-				target
-				title
-				uri
-			}
-		}
-	}
+  generalSettings {
+    ...GeneralSettings
+  }
+  header: getHeader {
+    ...HCMSHeader
+  }
+  footer: getFooter {
+    ...HCMSFooter
+  }
+  headerMenu: menu(id: "hcms-menu-header", idType: LOCATION) {
+    ...MenuItems
+  }
+  footerMenu: menu(id: "hcms-menu-footer", idType: LOCATION) {
+    ...MenuItems
+  }
 }

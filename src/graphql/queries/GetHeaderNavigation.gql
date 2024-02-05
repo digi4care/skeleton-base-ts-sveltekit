@@ -1,0 +1,5 @@
+query GetHeaderNavigation {
+  headerMenu: menu(id: "hcms-menu-header", idType: LOCATION) {
+    ...MenuItems
+  }
+}
