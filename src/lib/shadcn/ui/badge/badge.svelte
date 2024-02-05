@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { cn } from '$lib/utils/ui';
+	import { cn } from '$lib/shadcn/utils/ui';
 	import { badgeVariants, type Variant } from '.';
 
 	let className: string | undefined | null = undefined;

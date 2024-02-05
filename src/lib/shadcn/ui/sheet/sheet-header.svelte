@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { cn } from '$lib/utils/ui';
+	import { cn } from '$lib/shadcn/utils/ui';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	type $$Props = HTMLAttributes<HTMLDivElement>;

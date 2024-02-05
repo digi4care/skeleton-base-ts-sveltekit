@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Form as FormPrimitive } from 'formsnap';
-	import { cn } from '$lib/utils/ui';
+	import { cn } from '$lib/shadcn/utils/ui';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	type $$Props = HTMLAttributes<HTMLSpanElement>;

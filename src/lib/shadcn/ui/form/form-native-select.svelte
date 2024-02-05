@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Form as FormPrimitive } from 'formsnap';
 	import { buttonVariants } from '$lib/shadcn/ui/button';
-	import { cn } from '$lib/utils/ui';
+	import { cn } from '$lib/shadcn/utils/ui';
 	import { ChevronDown } from 'lucide-svelte';
 	import type { HTMLSelectAttributes } from 'svelte/elements';
 
