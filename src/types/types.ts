@@ -4,6 +4,7 @@ export type NonNullableEdges<T> =
 export type NonNullableNodes<T> =
 	NonNullable<T> extends { nodes: infer N } ? (N extends Array<infer V> ? V : never) : never;
 
+export type ValuesOf<T> = T[keyof T];
 export type Maybe<T> = T | null;
 export type Nullable<T> = T | undefined;
 export type NullableArray<T> = T[] | undefined;
