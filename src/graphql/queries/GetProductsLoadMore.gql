@@ -1,0 +1,25 @@
+query GetProductsLoadMore(
+	$first: Int
+	$after: String
+	$before: String
+	$where: RootQueryToProductUnionConnectionWhereArgs
+) {
+	products(first: $first, after: $after, before: $before, where: $where) @paginate {
+		pageInfo {
+			hasNextPage
+			startCursor
+			endCursor
+		}
+		edges {
+			cursor
+			node {
+				...ProductTaxonomies
+				...ProductContentSmall
+			}
+		}
+		nodes {
+			...ProductTaxonomies
+			...ProductContentSmall
+		}
+	}
+}
