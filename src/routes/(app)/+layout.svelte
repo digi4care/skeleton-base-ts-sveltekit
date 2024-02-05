@@ -4,14 +4,19 @@
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
 
+	/**
+	 * Setup Context
+	 * 
+	 * This is static data.
+	 */
 	import { setContext } from 'svelte';
 
-	const headerSettings = setContext('headerSettings', {
+	setContext('headerSettings', {
 		header: data.data.header,
 		headerMenu: data.data.headerMenu
 	});
 
-	const footerSettings = setContext('footerSettings', {
+	setContext('footerSettings', {
 		footer: data.data.footer,
 		footerMenu: data.data.footerMenu
 	});
