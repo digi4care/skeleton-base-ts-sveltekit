@@ -4,14 +4,13 @@ import website from '@/lib/config/website';
 export const prerender = true;
 
 export const GET: RequestHandler = function get({ setHeaders }) {
-	const { backgroundColor, description, siteShortTitle, siteTitle, siteUrl, themeColor } =
-		website;
+	const { backgroundColor, description, siteShortTitle, siteTitle, themeColor } = website;
 
 	const manifest = {
 		name: siteTitle,
 		short_name: siteShortTitle,
 		description,
-		start_url: siteUrl,
+		start_url: '/',
 		background_color: backgroundColor,
 		theme_color: themeColor,
 		display: 'standalone',

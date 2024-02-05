@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '@/app.postcss';
 	import { PUBLIC_ORG, PUBLIC_SITE_DESCRIPTION, PUBLIC_SITE_NAME } from '$env/static/public';
 
 	import type { LayoutServerData } from './$types';

@@ -11,29 +11,31 @@ import {
 } from '$houdini';
 
 import { getProductsWhereArgs } from '@/lib/config/connectionWhereArgs';
+import woocommerceSettings from '@/lib/config/webshop';
 
 export const load: PageLoad = async (event: PageLoadEvent) => {
 	try {
-		const pageNumber = +event.params.page.replace('page/', '');
-		let nextPage = 10;
+		// const pageNumber = +event.params.page.replace('page/', '');
+		const nextPage =
+			woocommerceSettings.itemsPerPage.shop || woocommerceSettings.itemsPerPage.default;
 
-		if (pageNumber > 0) nextPage = pageNumber * nextPage;
+		// if (pageNumber > 0) nextPage = pageNumber * nextPage;
 
-		const results = await loadAll(
-			// load_GetLayout({ event }),
-			load_GetProductsCount({ event }),
-			load_GetProducts({
-				event,
-				variables: {
-					first: nextPage,
-					where: getProductsWhereArgs
-				}
-			}),
-			load_GetShopCategories({ event }),
-			load_GetShopColors({ event })
-		);
-
-		return results;
+		return {
+			...(await loadAll(
+				// load_GetLayout({ event }),
+				load_GetProductsCount({ event }),
+				load_GetProducts({
+					event,
+					variables: {
+						first: nextPage,
+						where: getProductsWhereArgs
+					}
+				}),
+				load_GetShopCategories({ event }),
+				load_GetShopColors({ event })
+			))
+		};
 	} catch (e) {
 		// Log de error voor debugging doeleinden
 		console.error('Error tijdens het laden van de pagina data:', e);
