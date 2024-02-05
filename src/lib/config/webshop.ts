@@ -1,5 +1,5 @@
 // src/lib/config/webshop.ts
-import type { WoocommerceSettings } from '@/types';
+import type { WoocommerceSettings } from '@/types/woocommerce';
 
 const woocommerceSettings: WoocommerceSettings = {
 	images: {
