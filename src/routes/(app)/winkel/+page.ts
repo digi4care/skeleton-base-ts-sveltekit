@@ -3,7 +3,7 @@ import type { PageLoad, PageLoadEvent } from './$types';
 
 import {
 	loadAll,
-	load_GetLayout,
+	// load_GetLayout,
 	load_GetProducts,
 	load_GetShopCategories,
 	load_GetShopColors
@@ -12,8 +12,8 @@ import {
 export const load: PageLoad = async (event: PageLoadEvent) => {
 	try {
 		const results = await loadAll(
-			load_GetLayout({ event }),
-			load_GetProducts({ event, variables: { first: 1 } }),
+			// load_GetLayout({ event }),
+			load_GetProducts({ event, variables: { first: 10 } }),
 			load_GetShopCategories({ event }),
 			load_GetShopColors({ event })
 		);
