@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { PUBLIC_ORG, PUBLIC_SITE_DESCRIPTION, PUBLIC_SITE_NAME } from '$env/static/public';
+
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
 
@@ -25,7 +27,8 @@
 
 <svelte:head>
 	<title>
-		{data.data.generalSettings?.title || 'Hummer E-Commerce'}
+		{`${data.data.generalSettings?.title} | ${PUBLIC_ORG}` ||
+			`${PUBLIC_SITE_NAME} - ${PUBLIC_SITE_DESCRIPTION} | ${PUBLIC_ORG}`}
 	</title>
 </svelte:head>
 
