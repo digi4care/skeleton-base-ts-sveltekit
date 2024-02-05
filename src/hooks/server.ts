@@ -11,7 +11,7 @@ const directives = {
 	'child-src': ["'self'"],
 	'connect-src': ["'self'", 'ws://localhost:*'],
 	// 'connect-src': ["'self'", 'ws://localhost:*', 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
-	'img-src': ["'self'", 'data:'],
+	'img-src': ["'self'", 'data:', 'https://fav.farm'],
 	'font-src': ["'self'", 'data:'],
 	'form-action': ["'self'"],
 	'frame-ancestors': ["'self'"],
