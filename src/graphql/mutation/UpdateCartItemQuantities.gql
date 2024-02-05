@@ -1,5 +1,5 @@
-mutation UpdateCartItemQuantities($items: [CartItemQuantityInput]) {
-	updateItemQuantities(input: { items: $items }) {
+mutation UpdateCartItemQuantities($input: UpdateItemQuantitiesInput!) {
+	updateItemQuantities(input: $input) {
 		cart {
 			...CartContent
 		}

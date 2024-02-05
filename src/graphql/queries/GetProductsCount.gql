@@ -1,0 +1,5 @@
+query GetProductsCount($where: RootQueryToProductUnionConnectionWhereArgs) {
+	products(first: 1, where: $where) {
+		found
+	}
+}

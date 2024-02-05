@@ -1,17 +1,12 @@
-fragment CartItemContent on CartItem {
-	key
+fragment LineItemFields on LineItem {
+	id
+	databaseId
 	product {
 		node {
 			...ProductContentSlice
 		}
 	}
 	variation {
-		attributes {
-			id
-			label
-			name
-			value
-		}
 		node {
 			...ProductContentSlice
 		}
@@ -20,8 +15,4 @@ fragment CartItemContent on CartItem {
 	total
 	subtotal
 	subtotalTax
-	extraData {
-		key
-		value
-	}
 }

@@ -1,0 +1,11 @@
+mutation Register($input: RegisterCustomerInput!) {
+	registerCustomer(input: $input) {
+		customer {
+			auth {
+				refreshToken
+				authToken
+			}
+			...CustomerFields
+		}
+	}
+}

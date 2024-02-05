@@ -1,5 +1,5 @@
-mutation RemoveItemsFromCart($keys: [ID], $all: Boolean) {
-	removeItemsFromCart(input: { keys: $keys, all: $all }) {
+mutation RemoveItemsFromCart($input: RemoveItemsFromCartInput!) {
+	removeItemsFromCart(input: $input) {
 		cart {
 			...CartContent
 		}

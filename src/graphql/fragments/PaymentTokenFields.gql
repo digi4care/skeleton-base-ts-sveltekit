@@ -1,0 +1,9 @@
+fragment PaymentTokenFields on PaymentTokenCC {
+	id
+	tokenId
+	isDefault
+	last4
+	expiryMonth
+	expiryYear
+	cardType
+}

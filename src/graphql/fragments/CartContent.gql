@@ -11,6 +11,7 @@ fragment CartContent on Cart {
 		discountTax
 	}
 	needsShippingAddress
+	chosenShippingMethods
 	availableShippingMethods {
 		packageDetails
 		supportsShippingCalculator
@@ -26,7 +27,7 @@ fragment CartContent on Cart {
 	subtotalTax
 	shippingTax
 	shippingTotal
-	total
+	total(format: RAW)
 	totalTax
 	feeTax
 	feeTotal

@@ -1,0 +1,27 @@
+fragment OrderFields on Order {
+	id
+	databaseId
+	orderKey
+	orderNumber
+	status
+	date
+	paymentMethodTitle
+	subtotal
+	shippingTotal
+	shippingTax
+	discountTotal
+	discountTax
+	totalTax
+	total
+	billing {
+		...AddressFields
+	}
+	shipping {
+		...AddressFields
+	}
+	lineItems {
+		nodes {
+			...LineItemFields
+		}
+	}
+}

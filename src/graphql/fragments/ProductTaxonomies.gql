@@ -1,0 +1,16 @@
+fragment ProductTaxonomies on Product {
+	productCategories(first: 20) {
+		nodes {
+			id
+			slug
+			name
+		}
+	}
+	productTags(first: 20) {
+		nodes {
+			id
+			slug
+			name
+		}
+	}
+}

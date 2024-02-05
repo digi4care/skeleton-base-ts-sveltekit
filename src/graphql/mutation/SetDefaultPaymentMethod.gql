@@ -1,0 +1,8 @@
+mutation SetDefaultPaymentMethod($tokenId: Int!) {
+	setDefaultPaymentMethod(input: { tokenId: $tokenId }) {
+		status
+		token {
+			...PaymentTokenFields
+		}
+	}
+}

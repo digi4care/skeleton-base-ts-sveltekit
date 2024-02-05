@@ -1,0 +1,5 @@
+mutation DeletePaymentMethod($tokenId: Int!) {
+	deletePaymentMethod(input: { tokenId: $tokenId }) {
+		status
+	}
+}

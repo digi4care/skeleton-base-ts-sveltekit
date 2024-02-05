@@ -13,12 +13,14 @@ query GetShopCategories(
 				id
 				name
 				slug
+				count
 			}
 		}
 		nodes {
 			id
 			name
 			slug
+			count
 		}
 	}
 }

@@ -1,19 +1,5 @@
-mutation AddToCart(
-	$productId: Int!
-	$variationId: Int
-	$quantity: Int
-	$variation: [ProductAttributeInput]
-	$extraData: String
-) {
-	addToCart(
-		input: {
-			productId: $productId
-			variationId: $variationId
-			quantity: $quantity
-			variation: $variation
-			extraData: $extraData
-		}
-	) {
+mutation AddToCart($input: AddToCartInput!) {
+	addToCart(input: $input) {
 		cart {
 			...CartContent
 		}

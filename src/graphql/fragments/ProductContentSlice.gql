@@ -1,22 +1,20 @@
-fragment ProductContentSlice on Product {
+fragment ProductContentSlice on ProductUnion {
 	id
 	databaseId
 	name
 	slug
 	type
 	image {
-		id
-		sourceUrl(size: WOOCOMMERCE_THUMBNAIL)
-		altText
+		...ThumbnailImageFields
 	}
-	... on SimpleProduct {
+	... on ProductWithPricing {
 		price
 		regularPrice
-		soldIndividually
+		salePrice
 	}
-	... on VariableProduct {
-		price
-		regularPrice
+	... on InventoriedProduct {
+		stockStatus
+		stockQuantity
 		soldIndividually
 	}
 }

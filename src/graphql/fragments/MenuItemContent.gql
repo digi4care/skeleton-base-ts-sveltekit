@@ -1,7 +1,13 @@
 fragment MenuItemContent on MenuItem {
 	id
-	uri
-	title
-	label
+	order
+	parentId
+	databaseId
 	cssClasses
+	label
+	linkRelationship
+	path
+	target
+	title
+	uri
 }

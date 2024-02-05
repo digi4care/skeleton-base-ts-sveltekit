@@ -1,16 +1,17 @@
 fragment VariationContent on ProductVariation {
 	id
-	name
+	databaseId
 	slug
-	price
-	regularPrice
-	salePrice
-	stockStatus
-	stockQuantity
-	onSale
-	image {
-		id
-		sourceUrl
-		altText
+	name
+	type
+	...ProductContentSmall
+	attributes {
+		nodes {
+			id
+			attributeId
+			name
+			value
+			label
+		}
 	}
 }

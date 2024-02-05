@@ -1,0 +1,5 @@
+fragment ThumbnailImageFields on MediaItem {
+	id
+	sourceUrl(size: WOOCOMMERCE_THUMBNAIL)
+	altText
+}

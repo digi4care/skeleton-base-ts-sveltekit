@@ -1,16 +1,26 @@
-query GetProducts($first: Int, $after: String, $where: RootQueryToProductUnionConnectionWhereArgs) {
-	products(first: $first, after: $after, where: $where) {
+query GetProducts(
+	$first: Int
+	$last: Int
+	$after: String
+	$before: String
+	$where: RootQueryToProductUnionConnectionWhereArgs
+) {
+	products(first: $first, last: $last, after: $after, before: $before, where: $where) {
 		pageInfo {
-			endCursor
+			hasPreviousPage
 			hasNextPage
+			startCursor
+			endCursor
 		}
 		edges {
 			cursor
 			node {
+				...ProductTaxonomies
 				...ProductContentSmall
 			}
 		}
 		nodes {
+			...ProductTaxonomies
 			...ProductContentSmall
 		}
 	}

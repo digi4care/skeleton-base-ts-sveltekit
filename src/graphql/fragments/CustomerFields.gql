@@ -6,6 +6,17 @@ fragment CustomerFields on Customer {
 	displayName
 	email
 	sessionToken
+	orders {
+		nodes {
+			...OrderFields
+		}
+	}
+	billing {
+		...AddressFields
+	}
+	shipping {
+		...AddressFields
+	}
 	metaData {
 		key
 		value

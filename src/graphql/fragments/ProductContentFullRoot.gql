@@ -1,0 +1,80 @@
+fragment ProductContentFullRoot on Product {
+	id
+	databaseId
+	slug
+	name
+	type
+	description
+	shortDescription(format: RAW)
+	image {
+		...ImageFields
+	}
+	galleryImages {
+		nodes {
+			...ImageFields
+		}
+	}
+	productTags(first: 20) {
+		nodes {
+			id
+			slug
+			name
+		}
+	}
+	attributes(first: 100) {
+		nodes {
+			id
+			attributeId
+			... on LocalProductAttribute {
+				name
+				label
+				options
+				variation
+			}
+			... on GlobalProductAttribute {
+				name
+				label
+				options
+				variation
+				slug
+				terms(first: 100) {
+					nodes {
+						id
+						name
+						slug
+					}
+				}
+			}
+		}
+	}
+	... on ProductWithPricing {
+		price
+		rawPrice: price(format: RAW)
+		regularPrice
+		salePrice
+	}
+	... on InventoriedProduct {
+		manageStock
+		stockStatus
+		stockQuantity
+		soldIndividually
+	}
+	... on ProductWithVariations {
+		variations(first: 100) {
+			nodes {
+				...VariationContent
+			}
+		}
+	}
+	... on ProductWithAttributes {
+		defaultAttributes(first: 100) {
+			nodes {
+				id
+				attributeId
+				name
+				value
+				label
+			}
+		}
+	}
+}

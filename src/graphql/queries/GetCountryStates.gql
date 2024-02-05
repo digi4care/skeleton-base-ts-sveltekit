@@ -1,0 +1,6 @@
+query GetCountryStates($country: CountriesEnum!) {
+	countryStates(country: $country) {
+		name
+		code
+	}
+}

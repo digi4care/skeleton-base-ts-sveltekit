@@ -1,0 +1,13 @@
+fragment AddressFields on CustomerAddress {
+	firstName
+	lastName
+	company
+	address1
+	address2
+	city
+	state
+	postcode
+	country
+	email
+	phone
+}

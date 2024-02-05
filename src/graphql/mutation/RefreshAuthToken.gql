@@ -1,5 +1,6 @@
 mutation RefreshAuthToken($refreshToken: String!) {
 	refreshToken(input: { refreshToken: $refreshToken }) {
 		authToken
+		success
 	}
 }

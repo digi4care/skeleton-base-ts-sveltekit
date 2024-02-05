@@ -1,0 +1,7 @@
+mutation EmptyCart($input: EmptyCartInput!) {
+	emptyCart(input: $input) {
+		cart {
+			...CartContent
+		}
+	}
+}

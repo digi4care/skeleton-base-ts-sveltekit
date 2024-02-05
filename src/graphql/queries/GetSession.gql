@@ -3,6 +3,6 @@ query GetSession {
 		...CartContent
 	}
 	customer {
-		...CustomerContent
+		...CustomerFields
 	}
 }

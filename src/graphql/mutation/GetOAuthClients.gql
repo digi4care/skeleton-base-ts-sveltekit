@@ -1,0 +1,8 @@
+query GetOAuthClients {
+	loginClients {
+		name
+		provider
+		isEnabled
+		authorizationUrl
+	}
+}

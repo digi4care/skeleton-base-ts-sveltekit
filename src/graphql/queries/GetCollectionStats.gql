@@ -1,0 +1,31 @@
+query GetCollectionStats(
+	$taxonomies: [CollectionStatsQueryInput]
+	$where: CollectionStatsWhereArgs
+) {
+	collectionStats(
+		calculatePriceRange: true
+		calculateRatingCounts: true
+		calculateStockStatusCounts: true
+		taxonomies: $taxonomies
+		where: $where
+	) {
+		priceRange {
+			maxPrice(format: RAW)
+			minPrice(format: RAW)
+		}
+		attributeCounts {
+			name
+			slug
+			label
+			terms {
+				node {
+					id
+					name
+					slug
+				}
+				termId
+				count
+			}
+		}
+	}
+}

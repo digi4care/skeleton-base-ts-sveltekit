@@ -1,0 +1,5 @@
+query GetProductVariation($id: ID!, $idType: ProductVariationIdTypeEnum) {
+	productVariation(id: $id, idType: $idType) {
+		...VariationContent
+	}
+}
