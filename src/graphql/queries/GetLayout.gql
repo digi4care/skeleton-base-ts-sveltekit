@@ -1,6 +1,6 @@
 query GetLayout {
   generalSettings {
-    ...GeneralSettings
+    ...MyGeneralSettings
   }
   header: getHeader {
     ...HCMSHeader
