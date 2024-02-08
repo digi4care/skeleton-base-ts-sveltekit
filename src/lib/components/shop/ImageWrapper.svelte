@@ -1,26 +1,28 @@
 <script lang="ts">
-	import { fragment, graphql, type MyThumbnailImageFields } from '$houdini';
+	import { fragment, graphql, type ThumbnailImageFields$data } from '$houdini';
 
-	export let source: MyThumbnailImageFields;
+	type ThumbnailImageFields = ThumbnailImageFields$data | null;
+	
+	export let source: ThumbnailImageFields;
 	export let priority: boolean;
 
 	import { Image } from '@unpic/svelte';
 	import fallbackImage from '@/lib/assets/placeholders/woocommerce-placeholder-400x300.png.webp';
 
-	$: thumbnailImageFields = fragment(
-		source,
-		graphql(`
-			fragment MyThumbnailImageFields on MediaItem {
-				id
-				sourceUrl(size: WOOCOMMERCE_THUMBNAIL)
-				altText
-			}
-		`)
-	);
+	// $: thumbnailImageFields = fragment(
+	// 	source,
+	// 	graphql(`
+	// 		fragment MyThumbnailImageFields on MediaItem {
+	// 			id
+	// 			sourceUrl(size: WOOCOMMERCE_THUMBNAIL)
+	// 			altText
+	// 		}
+	// 	`)
+	// );
 
-	$: sourceUrl = $thumbnailImageFields?.sourceUrl || fallbackImage;
-	$: altText = $thumbnailImageFields?.altText;
-	// $: console.log($thumbnailImageFields.sourceUrl);
+	$: sourceUrl = source?.sourceUrl || fallbackImage;
+	$: altText = source?.altText;
+	// $: console.log(source.sourceUrl);
 </script>
 
 <picture>
