@@ -1,1 +1,1 @@
-export const wc_shop_endpoint = 'winkel'
+export const wc_shop_endpoint = 'winkel';
