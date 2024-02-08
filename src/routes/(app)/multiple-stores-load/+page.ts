@@ -1,11 +1,11 @@
 import { error } from '@sveltejs/kit'; // Zorg ervoor dat je de error functie importeert
-import type { PageLoad, PageLoadEvent } from './$types';
+import type { PageLoad } from './$types';
 
 import {
 	loadAll,
 	// load_GetLayout,
 	load_GetProductsCount,
-	load_GetProducts,
+	load_GetProductsMaskingTest,
 	load_GetShopCategories,
 	load_GetShopColors
 } from '$houdini';
@@ -13,22 +13,19 @@ import {
 import { getProductsWhereArgs } from '@/lib/config/connectionWhereArgs';
 import woocommerceSettings from '@/lib/config/webshop';
 
-export const load: PageLoad = async (event: PageLoadEvent) => {
+export const load: PageLoad = async (event) => {
 	try {
-		// const pageNumber = +event.params.page.replace('page/', '');
-		const nextPage =
+		const itemsPerPage =
 			woocommerceSettings.itemsPerPage.shop || woocommerceSettings.itemsPerPage.default;
-
-		// if (pageNumber > 0) nextPage = pageNumber * nextPage;
 
 		return {
 			...(await loadAll(
 				// load_GetLayout({ event }),
 				load_GetProductsCount({ event }),
-				load_GetProducts({
+				load_GetProductsMaskingTest({
 					event,
 					variables: {
-						first: nextPage,
+						first: itemsPerPage,
 						where: getProductsWhereArgs
 					}
 				}),

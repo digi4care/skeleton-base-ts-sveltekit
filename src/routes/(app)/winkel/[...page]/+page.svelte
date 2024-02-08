@@ -3,21 +3,21 @@
 	export let data: PageData;
 
 	// Destructure
-	// let { GetProducts, GetProductsCount, GetShopCategories, GetShopColors } = data;
+	let { GetProducts, GetProductsCount, GetShopCategories, GetShopColors } = data;
 	$: ({ GetProducts, GetProductsCount, GetShopCategories, GetShopColors } = data);
 
 	// $: console.log($GetShopCategories.data?.productCategories?.edges);
 	// $: console.log($GetShopColors.data?.allPaColor?.edges);
 	// $: console.log($GetProducts.data?.products?.nodes);
 
-	// const categories = $GetShopCategories.data?.productCategories?.edges || [];
-	// const productCount = $GetProductsCount.data?.products?.found || 0;
-	// const products = $GetProducts.data?.products?.nodes || [];
+	const categories = GetShopCategories.data?.productCategories?.edges || [];
+	const productCount = GetProductsCount.data?.products?.found || 0;
+	const products = GetProducts.data?.products?.nodes || [];
 
-	// const hasPreviousPage = $GetProducts.data?.products?.pageInfo.hasPreviousPage;
-	// const hasNextPage = $GetProducts.data?.products?.pageInfo.hasNextPage;
-	// const startCursor = $GetProducts.data?.products?.pageInfo.startCursor;
-	// const endCursor = $GetProducts.data?.products?.pageInfo.endCursor;
+	const hasPreviousPage = GetProducts.data?.products?.pageInfo.hasPreviousPage;
+	const hasNextPage = GetProducts.data?.products?.pageInfo.hasNextPage;
+	const startCursor = GetProducts.data?.products?.pageInfo.startCursor;
+	const endCursor = GetProducts.data?.products?.pageInfo.endCursor;
 
 	/**
 	 * ShadCN
@@ -37,12 +37,12 @@
 	/**
 	 * Debug
 	 */
-	// console.log($data.GetProducts);
+	// console.log(GetProducts.data?.products?.edges[0]?.node?.image?.sourceUrl);
 </script>
 
-<!-- <ProductCategoriesList {categories} /> -->
+<ProductCategoriesList {categories} />
 
-<!-- {#if products && products.length}
+{#if products && products.length}
 	<h1><stong class="product__list">Products</stong></h1>
 
 	<p class="mb-4 font-semibold">
@@ -61,8 +61,8 @@
 	</div>
 	<div class="mb-4 mt-auto flex justify-start gap-x-2 text-sm">
 		<Button
-			disabled={!$GetProducts.pageInfo.hasPreviousPage}
-			on:click={async () => GetProducts.loadPreviousPage}
+			disabled={!hasPreviousPage}
+			on:click={async () => GetProducts.loadPreviousPage()}
 			class={cn(
 				hasPreviousPage
 					? 'text-primary-foreground'
@@ -77,8 +77,8 @@
 		</Button>
 
 		<Button
-			disabled={!$GetProducts.pageInfo.hasNextPage}
-			on:click={async () => GetProducts.loadNextPage}
+			disabled={!hasNextPage}
+			on:click={async () => GetProducts.loadNextPage()}
 			class={cn(
 				hasNextPage
 					? 'text-primary-foreground'
@@ -92,4 +92,4 @@
 			Next
 		</Button>
 	</div>
-{/if} -->
+{/if}
