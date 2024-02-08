@@ -12,7 +12,7 @@
 				<li class="product__category">
 					<a
 						href="/product-category/{category.node.slug || ''}"
-						title={category.node.title || ''}
+						title={category.node.name || ''}
 						class="button">{category.node.name || ''}</a
 					>
 				</li>
