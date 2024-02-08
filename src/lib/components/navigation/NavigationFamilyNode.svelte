@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { MenuItemWithChildren } from '@/types';
+	import type { MenuItemWithChildren } from '@/types/graphql';
 	export let member: MenuItemWithChildren;
 
 	import { page } from '$app/stores';
@@ -17,7 +17,7 @@
 	// $: Log.debug('MenuLink', member.post_type === 'paage');
 </script>
 
-<li class:active={isActive} class="w-full pl-8 {cssClasses}">
+<li class:active={isActive} class="button pl-8 {cssClasses}">
 	{#if member?.path == '#'}
 		<span class="nav-link no-link cursor-pointer">
 			<span class="nav-link-label">

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 
-	import type { headerSettings } from '@/types';
+	import type { headerSettings } from '@/types/graphql';
 	import { buildMenuStructure } from '@/lib/utils/buildNavigationMenus';
 	import Navigation from '@/lib/components/navigation/Navigation.svelte';
 
