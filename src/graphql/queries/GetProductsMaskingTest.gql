@@ -1,0 +1,28 @@
+query GetProductsMaskingTest(
+	$first: Int
+	$last: Int
+	$after: String
+	$before: String
+	$where: RootQueryToProductUnionConnectionWhereArgs
+) {
+	products(first: $first, last: $last, after: $after, before: $before, where: $where)
+		@paginate(mode: SinglePage) {
+		pageInfo {
+			hasPreviousPage
+			hasNextPage
+			startCursor
+			endCursor
+		}
+		edges {
+			cursor
+			node {
+				...MyProductTaxonomies
+				...MyProductContentSmall
+			}
+		}
+		nodes {
+			...MyProductTaxonomies
+			...MyProductContentSmall
+		}
+	}
+}
