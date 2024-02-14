@@ -17,9 +17,9 @@
 	/**
 	 * My Components
 	 */
-	import ProductCategoriesList from '@/lib/components/shop/ProductCategoriesList.svelte';
-	import ProductCard from '@/lib/components/shop/ProductCard.svelte';
-	import Pagination from '@/lib/components/shop/Pagination.svelte';
+	import ProductCategoriesList from '@/lib/components/recipies/products/ProductCategoriesList.svelte';
+	import ProductCard from '@/lib/components/recipies/products/ProductCard.svelte';
+	import Pagination from '@/lib/components/elements/Pagination.svelte';
 
 	/**
 	 * Debug

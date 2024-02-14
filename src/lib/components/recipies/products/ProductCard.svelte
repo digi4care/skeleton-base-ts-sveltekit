@@ -9,7 +9,7 @@
 	import * as C from '@/lib/shadcn/ui/card';
 	import { cn } from '@/lib/shadcn/utils/ui';
 
-	import ImageWrapper from './ImageWrapper.svelte';
+	import ImageWrapper from '@/lib/components/elements/ImageWrapper.svelte';
 
 	let product_tax = product as unknown as MyProductTaxonomies;
 	let product_content = product as unknown as MyProductContentSmall;
