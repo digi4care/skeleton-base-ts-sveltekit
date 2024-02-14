@@ -11,8 +11,8 @@
 	/**
 	 * My Components
 	 */
-	import ProductCard from '@/lib/components/shop/ProductCard.svelte';
-	import Pagination from '@/lib/components/shop/Pagination.svelte';
+	import ProductCard from '@/lib/components/recipies/products/ProductCard.svelte'
+	import Pagination from '@/lib/components/elements/shop/Pagination.svelte';
 </script>
 
 <div class="container">
