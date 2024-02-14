@@ -29,8 +29,22 @@ export const load: PageLoad = async (event) => {
 						where: getProductsWhereArgs
 					}
 				}),
-				load_GetShopCategories({ event }),
-				load_GetShopColors({ event })
+				load_GetShopCategories({
+					event,
+					variables: {
+						where: {
+							hideEmpty: true
+						}
+					}
+				}),
+				load_GetShopColors({
+					event,
+					variables: {
+						where: {
+							hideEmpty: true
+						}
+					}
+				})
 			))
 		};
 	} catch (e) {
