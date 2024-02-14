@@ -18,18 +18,20 @@
 		product_tax,
 		graphql(`
 			fragment MyProductTaxonomies on Product {
-				productCategories(first: 20) {
+				productCategories(first: 20, where: {hideEmpty: true}) {
 					nodes {
 						id
 						slug
 						name
+						count
 					}
 				}
-				productTags(first: 20) {
+				productTags(first: 20, where: {hideEmpty: true}) {
 					nodes {
 						id
 						slug
 						name
+						count
 					}
 				}
 			}
@@ -81,10 +83,10 @@
 	<C.Footer class="mt-auto flex-col p-4">
 		{#if categories}
 			<div class="product__categories">
-				<ul class="justify center flex gap-4">
+				<ul class="justify center flex gap-x-4 flex-wrap">
 					{#each categories as cat, index (cat.id)}
 						<li>
-							<a href={`/product-category/${cat.slug}`} title={cat.name}>{cat.name}</a
+							<a href={`/product-category/${cat.slug}`} title={cat.name}>{cat.name} (<strong>{cat.count}</strong>)</a
 							>
 						</li>
 					{/each}
@@ -93,10 +95,10 @@
 		{/if}
 		{#if tags}
 			<div class="product__tags">
-				<ul class="justify center flex gap-4">
+				<ul class="justify center flex gap-x-4 flex-wrap">
 					{#each tags as tag, index (tag.id)}
 						<li>
-							<a href={`/product-tag/${tag.slug}`} title={tag.name}>{tag.name}</a>
+							<a href={`/product-tag/${tag.slug}`} title={tag.name}>{tag.name} (<strong>{tag.count}</strong>)</a>
 						</li>
 					{/each}
 				</ul>
