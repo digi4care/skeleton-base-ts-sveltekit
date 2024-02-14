@@ -1,12 +1,12 @@
 fragment ProductTaxonomies on Product {
-	productCategories(first: 20) {
+	productCategories(first: 20, where: { hideEmpty: true }) {
 		nodes {
 			id
 			slug
 			name
 		}
 	}
-	productTags(first: 20) {
+	productTags(first: 20, where: { hideEmpty: true }) {
 		nodes {
 			id
 			slug
