@@ -6,7 +6,8 @@ query GetProductsMaskingTest(
 	$where: RootQueryToProductUnionConnectionWhereArgs
 ) {
 	products(first: $first, last: $last, after: $after, before: $before, where: $where)
-		@paginate(mode: SinglePage) {
+		@paginate(mode: SinglePage)
+		@loading {
 		pageInfo {
 			hasPreviousPage
 			hasNextPage
