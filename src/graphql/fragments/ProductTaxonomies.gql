@@ -4,6 +4,7 @@ fragment ProductTaxonomies on Product {
 			id
 			slug
 			name
+			count
 		}
 	}
 	productTags(first: 20, where: { hideEmpty: true }) {
@@ -11,6 +12,7 @@ fragment ProductTaxonomies on Product {
 			id
 			slug
 			name
+			count
 		}
 	}
 }
