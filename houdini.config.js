@@ -5,6 +5,7 @@ const config = {
 	watchSchema: {
 		url: 'https://webshop.voorbeeld.link/graphql'
 	},
+	defaultFragmentMasking: "disable",
 	plugins: {
 		'houdini-svelte': {}
 	}
