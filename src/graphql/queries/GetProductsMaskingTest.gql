@@ -6,8 +6,7 @@ query GetProductsMaskingTest(
 	$where: RootQueryToProductUnionConnectionWhereArgs
 ) {
 	products(first: $first, last: $last, after: $after, before: $before, where: $where)
-		@paginate(mode: SinglePage)
-		@loading {
+		@paginate(mode: SinglePage) {
 		pageInfo {
 			hasPreviousPage
 			hasNextPage
@@ -17,13 +16,13 @@ query GetProductsMaskingTest(
 		edges {
 			cursor
 			node {
-				...MyProductTaxonomies
-				...MyProductContentSmall
+				...ProductTaxonomies
+				...ProductContentSmall
 			}
 		}
 		nodes {
-			...MyProductTaxonomies
-			...MyProductContentSmall
+			...ProductTaxonomies
+			...ProductContentSmall
 		}
 	}
 }

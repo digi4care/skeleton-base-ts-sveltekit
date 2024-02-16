@@ -1,15 +1,15 @@
 <script lang="ts">
-	import type { PageData } from '../../../routes/(app)/manual-loads/$types';
-	export let data: PageData;
+	import type { HomePageData } from '@/types/graphql';
+	export let data: HomePageData;
 
 	// Destructure
 	let { GetProductsMaskingTest } = data;
 	$: ({ GetProductsMaskingTest } = data);
 
-	const hasPreviousPage = $GetProductsMaskingTest.data?.products?.pageInfo.hasPreviousPage; // bool
-	const hasNextPage = $GetProductsMaskingTest.data?.products?.pageInfo.hasNextPage; // bool
-	const startCursor = $GetProductsMaskingTest.data?.products?.pageInfo.startCursor;
-	const endCursor = $GetProductsMaskingTest.data?.products?.pageInfo.endCursor;
+	const hasPreviousPage = $GetProductsMaskingTest.pageInfo.hasPreviousPage; // bool
+	const hasNextPage = $GetProductsMaskingTest.pageInfo.hasNextPage; // bool
+	const startCursor = $GetProductsMaskingTest.pageInfo.startCursor;
+	const endCursor = $GetProductsMaskingTest.pageInfo.endCursor;
 
 	/**
 	 * ShadCN

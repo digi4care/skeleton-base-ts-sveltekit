@@ -6,25 +6,20 @@
 	let { GetProductsMaskingTest, GetProductsCount, GetShopCategories, GetShopColors } = data;
 	$: ({ GetProductsMaskingTest, GetProductsCount, GetShopCategories, GetShopColors } = data);
 
-	// $: console.log($GetShopCategories.data?.productCategories?.edges);
-	// $: console.log($GetShopColors.data?.allPaColor?.edges);
-	// $: console.log($GetProductsMaskingTest.data?.products?.nodes);
-
-	const categories = $GetShopCategories.data?.productCategories?.edges;
-	$: productCount = $GetProductsCount.data?.products?.found || 0;
-	$: products = $GetProductsMaskingTest.data?.products?.nodes;
+	$: categories = $GetShopCategories.data?.productCategories?.nodes;
+	$: products = $GetProductsMaskingTest.data?.products;
+	$: found = $GetProductsCount.data?.products?.found;
 
 	/**
 	 * My Components
 	 */
 	import ProductCategoriesList from '@/lib/components/recipies/products/ProductCategoriesList.svelte';
-	import ProductCard from '@/lib/components/recipies/products/ProductCard.svelte';
+	import ProductsList from '@/lib/components/recipies/products/ProductsList.svelte';
 	import Pagination from '@/lib/components/elements/Pagination.svelte';
 
 	/**
 	 * Debug
 	 */
-	// $: console.log(products);
 </script>
 
 <div class="container">
@@ -37,21 +32,7 @@
 		<strong>Still Fetching data</strong>
 	{:else}
 		<Pagination {data} />
-
-		<p class="mb-4 font-semibold">
-			Showing {products?.length} of {productCount || products?.length} items
-		</p>
-		<div class="mb-8 flex flex-wrap justify-center gap-8 md:justify-start">
-			{#if products}
-				{#each products as product, index (product.id)}
-					<ProductCard
-						className="w-80 grow md:w-40 md:basis-1/4"
-						{product}
-						priority={index < 8}
-					/>
-				{/each}
-			{/if}
-		</div>
+		<ProductsList {data} />
 		<Pagination {data} />
 	{/if}
 </div>

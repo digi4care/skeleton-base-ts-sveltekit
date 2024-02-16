@@ -3,7 +3,15 @@ import type { NonNullableEdges, NonNullableNodes } from './types';
 /**
  * Houdini
  */
-import type { GetLayout$result, GetShopCategories$result } from '$houdini';
+import type {
+	GetLayout$result,
+	GetShopCategories$result,
+	GetProductsCountStore,
+	GetProductsMaskingTestStore,
+	GetShopCategoriesStore,
+	GetShopColorsStore,
+	GetProductsMaskingTest$result
+} from '$houdini';
 
 export type headerSettings = {
 	header: GetLayout$result['header'];
@@ -13,6 +21,14 @@ export type headerSettings = {
 export type footerSettings = {
 	footer: GetLayout$result['footer'];
 	footerMenu: GetLayout$result['footerMenu'];
+};
+
+export type HomePageData = {
+	GetLayout: GetLayout$result;
+	GetProductsCount: GetProductsCountStore;
+	GetProductsMaskingTest: GetProductsMaskingTestStore;
+	GetShopCategories: GetShopCategoriesStore;
+	GetShopColors: GetShopColorsStore;
 };
 
 /** Shop Categories */
@@ -32,3 +48,57 @@ export type MenuItemNode = HeaderMenuItemsNode['nodes'];
 // Assuming that MenuItemNode is an array of items as defined in your context.
 export type MenuItem = MenuItemNode[number];
 export type MenuItemWithChildren = MenuItem & { children: MenuItemWithChildren[] };
+
+/**
+ * Helpers
+ */
+// Union type van alle product types
+export type ProductTypes =
+	| ExternalProduct
+	| GroupProduct
+	| SimpleProduct
+	| UnsupportedProduct
+	| VariableProduct
+	| SimpleProductVariation;
+
+// Bestaande types, aangenomen dat deze al gedefinieerd zijn
+type ExternalProduct = { __typename: 'ExternalProduct' /* andere velden */ };
+type GroupProduct = { __typename: 'GroupProduct' /* andere velden */ };
+type SimpleProduct = { __typename: 'SimpleProduct' /* andere velden */ };
+type UnsupportedProduct = { __typename: 'UnsupportedProduct' /* andere velden */ };
+type VariableProduct = { __typename: 'VariableProduct' /* andere velden */ };
+type SimpleProductVariation = { __typename: 'SimpleProductVariation' /* andere velden */ };
+
+// Utility type om het juiste type te extraheren op basis van __typename
+type ProductEdgeTypeByTypename<Typename> = Extract<ProductEdge, { __typename: Typename }>;
+
+// Utility type om het juiste type te extraheren op basis van __typename
+type ProductNodeTypeByTypename<Typename> = Extract<ProductNode, { __typename: Typename }>;
+
+/**
+ * Create Product Edges
+ */
+export type ProductEdge = NonNullable<
+	GetProductsMaskingTest$result['products']
+>['edges'][number]['node'];
+
+// Voorbeelden van het extraheren van types op basis van __typename
+export type ExternalProductEdgeType = ProductEdgeTypeByTypename<'ExternalProduct'>;
+export type GroupProductEdgeType = ProductEdgeTypeByTypename<'GroupProduct'>;
+export type SimpleProductEdgeType = ProductEdgeTypeByTypename<'SimpleProduct'>;
+export type UnsupportedProductEdgeType = ProductEdgeTypeByTypename<'UnsupportedProduct'>;
+export type VariableProductEdgeType = ProductEdgeTypeByTypename<'VariableProduct'>;
+export type SimpleProductVariationEdgeType = ProductEdgeTypeByTypename<'SimpleProductVariation'>;
+
+/**
+ * Create Product Nodes
+ */
+export type ProductNode = NonNullable<GetProductsMaskingTest$result['products']>['nodes'][number];
+
+// Voorbeelden van het extraheren van types op basis van __typename
+export type ExternalProductNodeType = ProductNodeTypeByTypename<'ExternalProduct'>;
+export type GroupProductNodeType = ProductNodeTypeByTypename<'GroupProduct'>;
+export type SimpleProductNodeType = ProductNodeTypeByTypename<'SimpleProduct'>;
+export type UnsupportedProductNodeType = ProductNodeTypeByTypename<'UnsupportedProduct'>;
+export type VariableProductNodeType = ProductNodeTypeByTypename<'VariableProduct'>;
+export type SimpleProductVariationNodeType = ProductNodeTypeByTypename<'SimpleProductVariation'>;
