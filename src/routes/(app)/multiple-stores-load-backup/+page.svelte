@@ -10,7 +10,7 @@
 	// $: console.log($GetShopColors.data?.allPaColor?.edges);
 	// $: console.log($GetProductsMaskingTest.data?.products?.nodes);
 
-	const categories = $GetShopCategories.data?.productCategories?.edges;
+	$: categories = $GetShopCategories.data?.productCategories?.nodes;
 	$: productCount = $GetProductsCount.data?.products?.found || 0;
 	$: products = $GetProductsMaskingTest.data?.products?.nodes;
 
