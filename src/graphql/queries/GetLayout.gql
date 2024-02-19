@@ -1,17 +1,17 @@
 query GetLayout {
 	generalSettings {
-		...MyGeneralSettings @mask_disable
+		...GeneralSettings
 	}
 	header: getHeader {
-		...HCMSHeader @mask_disable
+		...HCMSHeader
 	}
 	footer: getFooter {
-		...HCMSFooter @mask_disable
+		...HCMSFooter
 	}
 	headerMenu: menu(id: "hcms-menu-header", idType: LOCATION) {
-		...MenuItems @mask_disable
+		...MenuItems
 	}
 	footerMenu: menu(id: "hcms-menu-footer", idType: LOCATION) {
-		...MenuItems @mask_disable
+		...MenuItems
 	}
 }

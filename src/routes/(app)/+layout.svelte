@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '@/app.postcss';
+	import { PUBLIC_ORG, PUBLIC_SITE_DESCRIPTION, PUBLIC_SITE_NAME } from '$env/static/public';
 
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
@@ -27,9 +28,13 @@
 
 	import Layout from '@/lib/components/layout/Layout.svelte';
 	import SeoPageTitle from '@/lib/components/seo/LayoutPageSeoPageTitle.svelte';
+
+	const generalSettings = GetLayout.generalSettings;
 </script>
 
-<SeoPageTitle generalSettings={GetLayout?.generalSettings} />
+{#if generalSettings}
+	<SeoPageTitle {generalSettings} />
+{/if}
 
 <Layout>
 	<slot />
