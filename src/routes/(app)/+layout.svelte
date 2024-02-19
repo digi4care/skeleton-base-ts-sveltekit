@@ -28,6 +28,11 @@
 	import Layout from '@/lib/components/layout/Layout.svelte';
 	import SeoPageTitle from '@/lib/components/seo/LayoutPageSeoPageTitle.svelte';
 
+	/**
+	 * Shadcn
+	 */
+	import { Toaster } from '@/lib/shadcn/ui/sonner';
+
 	const generalSettings = GetLayout.generalSettings;
 </script>
 
@@ -38,3 +43,4 @@
 <Layout>
 	<slot />
 </Layout>
+<Toaster theme='light' />
