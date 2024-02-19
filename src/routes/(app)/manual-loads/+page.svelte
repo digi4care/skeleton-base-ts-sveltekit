@@ -12,7 +12,7 @@
 	 * My Components
 	 */
 	import ProductCard from '@/lib/components/recipies/products/ProductCard.svelte'
-	import Pagination from '@/lib/components/elements/Pagination.svelte';
+	import Pagination from '@/lib/components/recipies/products/Pagination.svelte';
 </script>
 
 <div class="container">

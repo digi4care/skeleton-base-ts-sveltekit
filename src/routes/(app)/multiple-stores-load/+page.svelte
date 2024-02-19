@@ -15,7 +15,7 @@
 	 */
 	import ProductCategoriesList from '@/lib/components/recipies/products/ProductCategoriesList.svelte';
 	import ProductsList from '@/lib/components/recipies/products/ProductsList.svelte';
-	import Pagination from '@/lib/components/elements/Pagination.svelte';
+	import Pagination from '@/lib/components/recipies/products/Pagination.svelte';
 
 	/**
 	 * Debug
