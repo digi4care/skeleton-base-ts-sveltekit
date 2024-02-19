@@ -6,52 +6,45 @@
 	let { GetProducts, GetProductsCount, GetShopCategories, GetShopColors } = data;
 	$: ({ GetProducts, GetProductsCount, GetShopCategories, GetShopColors } = data);
 
-	// $: console.log($GetShopCategories.data?.productCategories?.edges);
-	// $: console.log($GetShopColors.data?.allPaColor?.edges);
-	// $: console.log($GetProducts.data?.products?.nodes);
-
 	$: categories = $GetShopCategories.data?.productCategories?.nodes;
-	$: productCount = $GetProductsCount.data?.products?.found || 0;
-	$: products = $GetProducts.data?.products?.nodes;
+	$: products = $GetProducts.data?.products;
+	$: found = $GetProductsCount.data?.products?.found;
 
 	/**
 	 * My Components
 	 */
 	import ProductCategoriesList from '@/lib/components/recipies/products/ProductCategoriesList.svelte';
-	import ProductCard from '@/lib/components/recipies/products/ProductCard.svelte';
-	import Pagination from '@/lib/components/elements/Pagination.svelte';
+	import ProductsList from '@/lib/components/recipies/products/ProductsList.svelte';
+	import Pagination from '@/lib/components/recipies/products/Pagination.svelte';
+	import ShopSidebar from '@/lib/components/recipies/products/ShopSidebar.svelte';
+	import SearchBar from '@/lib/components/recipies/products/SearchBar.svelte';
 
 	/**
 	 * Debug
 	 */
-	// $: console.log(products);
 </script>
 
 <div class="container">
-	<ProductCategoriesList {categories} />
-
 	<div class="flex justify-center py-16">
 		<h1><stong class="product__list text-2xl">Products</stong></h1>
 	</div>
 	{#if $GetProducts.fetching}
 		<strong>Still Fetching data</strong>
 	{:else}
-		<Pagination {data} />
-
-		<p class="mb-4 font-semibold">
-			Showing {products?.length} of {productCount || products?.length} items
-		</p>
-		<div class="mb-8 flex flex-wrap justify-center gap-8 md:justify-start">
-			{#if products}
-				{#each products as product, index (product.id)}
-					<ProductCard
-						className="w-80 grow md:w-40 md:basis-1/4"
-						{product}
-						priority={index < 8}
-					/>
-				{/each}
-			{/if}
+		<div class="relative mx-auto flex w-full max-w-screen-lg">
+			<ShopSidebar>
+				{#if categories}
+					<ProductCategoriesList {categories} />
+				{/if}
+			</ShopSidebar>
+			<div class="w-full px-4 lg:w-3/4">
+				<p class="mb-2 font-serif text-lg font-bold">Search</p>
+				<SearchBar />
+				<p class="mb-2 font-serif text-lg font-bold">Results</p>
+				<Pagination {data} />
+				<ProductsList {data} />
+				<Pagination {data} />
+			</div>
 		</div>
-		<Pagination {data} />
 	{/if}
 </div>
