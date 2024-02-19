@@ -3,10 +3,10 @@
 	export let data: PageData;
 
 	// Destructure
-	let { GetProductsMaskingTest } = data;
-	$: ({ GetProductsMaskingTest } = data);
+	let { GetProducts } = data;
+	$: ({ GetProducts } = data);
 
-	$: products = $GetProductsMaskingTest.data?.products?.nodes;
+	$: products = $GetProducts.data?.products?.nodes;
 
 	/**
 	 * My Components
@@ -19,7 +19,7 @@
 	<div class="flex justify-center py-16">
 		<h1><stong class="product__list text-2xl">Products</stong></h1>
 	</div>
-	{#if $GetProductsMaskingTest.fetching}
+	{#if $GetProducts.fetching}
 		<strong>Still Fetching data</strong>
 	{:else}
 		<Pagination {data} />

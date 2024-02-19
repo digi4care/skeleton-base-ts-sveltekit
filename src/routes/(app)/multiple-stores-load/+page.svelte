@@ -3,11 +3,11 @@
 	export let data: PageData;
 
 	// Destructure
-	let { GetProductsMaskingTest, GetProductsCount, GetShopCategories, GetShopColors } = data;
-	$: ({ GetProductsMaskingTest, GetProductsCount, GetShopCategories, GetShopColors } = data);
+	let { GetProducts, GetProductsCount, GetShopCategories, GetShopColors } = data;
+	$: ({ GetProducts, GetProductsCount, GetShopCategories, GetShopColors } = data);
 
 	$: categories = $GetShopCategories.data?.productCategories?.nodes;
-	$: products = $GetProductsMaskingTest.data?.products;
+	$: products = $GetProducts.data?.products;
 	$: found = $GetProductsCount.data?.products?.found;
 
 	/**
@@ -28,7 +28,7 @@
 	<div class="flex justify-center py-16">
 		<h1><stong class="product__list text-2xl">Products</stong></h1>
 	</div>
-	{#if $GetProductsMaskingTest.fetching}
+	{#if $GetProducts.fetching}
 		<strong>Still Fetching data</strong>
 	{:else}
 		<Pagination {data} />

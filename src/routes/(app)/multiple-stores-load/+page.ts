@@ -5,7 +5,7 @@ import {
 	loadAll,
 	// load_GetLayout,
 	load_GetProductsCount,
-	load_GetProductsMaskingTest,
+	load_GetProducts,
 	load_GetShopCategories,
 	load_GetShopColors
 } from '$houdini';
@@ -22,7 +22,7 @@ export const load: PageLoad = async (event) => {
 			...(await loadAll(
 				// load_GetLayout({ event }),
 				load_GetProductsCount({ event }),
-				load_GetProductsMaskingTest({
+				load_GetProducts({
 					event,
 					variables: {
 						first: itemsPerPage,

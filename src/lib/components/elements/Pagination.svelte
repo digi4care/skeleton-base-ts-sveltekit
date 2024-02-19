@@ -3,13 +3,13 @@
 	export let data: HomePageData;
 
 	// Destructure
-	let { GetProductsMaskingTest } = data;
-	$: ({ GetProductsMaskingTest } = data);
+	let { GetProducts } = data;
+	$: ({ GetProducts } = data);
 
-	const hasPreviousPage = $GetProductsMaskingTest.pageInfo.hasPreviousPage; // bool
-	const hasNextPage = $GetProductsMaskingTest.pageInfo.hasNextPage; // bool
-	const startCursor = $GetProductsMaskingTest.pageInfo.startCursor;
-	const endCursor = $GetProductsMaskingTest.pageInfo.endCursor;
+	const hasPreviousPage = $GetProducts.pageInfo.hasPreviousPage; // bool
+	const hasNextPage = $GetProducts.pageInfo.hasNextPage; // bool
+	const startCursor = $GetProducts.pageInfo.startCursor;
+	const endCursor = $GetProducts.pageInfo.endCursor;
 
 	/**
 	 * ShadCN
@@ -28,8 +28,8 @@
 
 <div class="mb-4 mt-auto flex justify-start gap-x-2 text-sm">
 	<Button
-		disabled={!$GetProductsMaskingTest.pageInfo.hasPreviousPage}
-		on:click={async () => GetProductsMaskingTest.loadPreviousPage({ last: itemsPerPage })}
+		disabled={!$GetProducts.pageInfo.hasPreviousPage}
+		on:click={async () => GetProducts.loadPreviousPage({ last: itemsPerPage })}
 		class={cn(
 			hasPreviousPage
 				? 'text-primary-foreground'
@@ -44,8 +44,8 @@
 	</Button>
 
 	<Button
-		disabled={!$GetProductsMaskingTest.pageInfo.hasNextPage}
-		on:click={async () => GetProductsMaskingTest.loadNextPage({ first: itemsPerPage })}
+		disabled={!$GetProducts.pageInfo.hasNextPage}
+		on:click={async () => GetProducts.loadNextPage({ first: itemsPerPage })}
 		class={cn(
 			hasNextPage
 				? 'text-primary-foreground'

@@ -7,10 +7,10 @@ import type {
 	GetLayout$result,
 	GetShopCategories$result,
 	GetProductsCountStore,
-	GetProductsMaskingTestStore,
+	GetProductsStore,
 	GetShopCategoriesStore,
 	GetShopColorsStore,
-	GetProductsMaskingTest$result
+	GetProducts$result
 } from '$houdini';
 
 export type headerSettings = {
@@ -26,7 +26,7 @@ export type footerSettings = {
 export type HomePageData = {
 	GetLayout: GetLayout$result;
 	GetProductsCount: GetProductsCountStore;
-	GetProductsMaskingTest: GetProductsMaskingTestStore;
+	GetProducts: GetProductsStore;
 	GetShopCategories: GetShopCategoriesStore;
 	GetShopColors: GetShopColorsStore;
 };
@@ -79,7 +79,7 @@ type ProductNodeTypeByTypename<Typename> = Extract<ProductNode, { __typename: Ty
  * Create Product Edges
  */
 export type ProductEdge = NonNullable<
-	GetProductsMaskingTest$result['products']
+	GetProducts$result['products']
 >['edges'][number]['node'];
 
 // Voorbeelden van het extraheren van types op basis van __typename
@@ -93,7 +93,7 @@ export type SimpleProductVariationEdgeType = ProductEdgeTypeByTypename<'SimplePr
 /**
  * Create Product Nodes
  */
-export type ProductNode = NonNullable<GetProductsMaskingTest$result['products']>['nodes'][number];
+export type ProductNode = NonNullable<GetProducts$result['products']>['nodes'][number];
 
 // Voorbeelden van het extraheren van types op basis van __typename
 export type ExternalProductNodeType = ProductNodeTypeByTypename<'ExternalProduct'>;

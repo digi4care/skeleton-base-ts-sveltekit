@@ -3,10 +3,10 @@
 	export let data: HomePageData;
 
 	// Destructure
-	let { GetProductsMaskingTest, GetProductsCount, GetShopCategories, GetShopColors } = data;
-	$: ({ GetProductsMaskingTest, GetProductsCount, GetShopCategories, GetShopColors } = data);
+	let { GetProducts, GetProductsCount, GetShopCategories, GetShopColors } = data;
+	$: ({ GetProducts, GetProductsCount, GetShopCategories, GetShopColors } = data);
 
-	const products = $GetProductsMaskingTest.data?.products;
+	const products = $GetProducts.data?.products;
 	const found = $GetProductsCount.data?.products?.found;
 
 	import ProductCard from '@/lib/components/recipies/products/ProductCard.svelte';

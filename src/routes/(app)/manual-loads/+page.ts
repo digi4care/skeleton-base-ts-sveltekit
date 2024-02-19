@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit'; // Zorg ervoor dat je de error functie importeert
 import type { PageLoad } from './$types';
 
-import { load_GetProductsMaskingTest } from '$houdini';
+import { load_GetProducts } from '$houdini';
 import { getProductsWhereArgs } from '@/lib/config/connectionWhereArgs';
 import woocommerceSettings from '@/lib/config/webshop';
 
@@ -10,7 +10,7 @@ export const load: PageLoad = async (event) => {
 		const itemsPerPage =
 			woocommerceSettings.itemsPerPage.shop || woocommerceSettings.itemsPerPage.default;
 		return {
-			...(await load_GetProductsMaskingTest({
+			...(await load_GetProducts({
 				event,
 				variables: {
 					first: itemsPerPage,
